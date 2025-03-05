@@ -17,18 +17,35 @@ options = {
   'time_format': '%Y%m%d'
 }
 ```
-- The key in `options` is same as `Export.image.toDrive` except `Image` and `time_format`. See also <https://developers.google.com/earth-engine/apidocs/export-image-todrive>.
-- You can include "%time" or "%index" in `fileNamePrefix`, which will be replaced with image time and sequence number.
-- `time_format` will be use to control time format if "%time" is included in `fileNamePrefix`. This is all format codes.
-  | Directive | Meaning |
-  | ---- | ---- |
-  | %Y | year |
-  | %m | month |
-  | %d | day |
-  | %H | hour |
-  | %M | minute |
-  | %S | second |
-  | %% | char '%' |
+**Parameter Details**
+- Compatibility Parameters
+> All parameters except `time_format` and `folder` align with the official `Export.image.toDrive` API.
+> See also <https://developers.google.com/earth-engine/apidocs/export-image-todrive>.
+> including:
+```javascript
+description, dimensions, crs, crsTransform, shardSize, fileDimensions, skipEmptyTiles...  
+```
+
+- Dynamic Naming Rules
+> `fileNamePrefix` supports two placeholders:
+
+| Placeholder | Replacement Content | Example Value |
+| ---- | ---- | ---- |
+| %time |	Image acquisition time | 20230615 |
+| %index | System-generated index | 20230615T030729_60UXU |
+
+- Time Format Syntax
+> `time_format` controls the display format of %time, supporting these directives: 
+
+| Directive | Meaning | Example |
+| ---- | ---- | --- |
+| %Y | year | 2025 |
+| %m | month | 03 |
+| %d | day | 05 |
+| %H | hour | 08 |
+| %M | minute | 05 |
+| %S | second | 30 |
+| %% | Escaped % character | % |
 
 ### 3. download
 ```javascript
@@ -41,5 +58,3 @@ lib.downloadImageCollection(
 
 ## License
 MIT
-
-## 
