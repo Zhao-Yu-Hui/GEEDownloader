@@ -1,3 +1,5 @@
+Read this in other languages: [中文](README_zh_CN.md)
+
 # GEEDownloader
 A library for downloading ImageCollection from Google Earth Engine
 
@@ -13,7 +15,7 @@ var lib = require('users/zhaoyuhui012/libs:libImageCollectionDownloader')
 ### 2. set download options
 ```javascript
 options = {
-  'fileNamePrefix': '%index_%time'
+  'fileNamePrefix': '%index_%time',
   'time_format': '%Y%m%d'
 }
 ```
@@ -57,4 +59,4 @@ lib.downloadImageCollection(
 ```
 
 ## License
-MIT
+MIT License (c) 2025 Zhao Yuhui
